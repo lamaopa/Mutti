@@ -1,0 +1,268 @@
+
+/* HERO*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+section{
+  height: 100vh;
+}
+
+.hero-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em;
+  background-color: white;
+  
+}
+.hero{
+  display: flex;
+  justify-content: space-around;
+  gap: 10em;
+  align-items: center;
+  
+}
+
+ 
+  
+
+.hero h1 {
+  font-family: 'Pirata One', system-ui;
+  font-size: 18vw;
+  line-height: .8;
+  color: black;
+  margin: 20px 0; 
+}
+
+.top-img{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.right-img{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.right-img img {
+  width: auto; /* Ensures the image retains its original width */
+  height: auto; /* Ensures the image retains its original height */
+  
+  
+  
+}
+
+.bottom-img{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+
+
+ /*VERSION OLD TV*/
+/* #wrapper {
+
+  filter: grayscale(100%) brightness(93%) contrast(180%);
+  display: flex;
+  justify-content: center;
+}
+.contents {
+  width: 100%; 
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+}
+
+.contents img {
+  width: 100vh;
+} */
+
+
+section {
+  height: 100vh;
+  background: #0F0F0F;
+  
+}
+
+.about {
+  display: grid;
+  place-content: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3vw;
+  text-align: start;
+  padding: 0 clamp(4rem, 12vw, 20rem);
+  display: grid;
+  place-content: center;
+}
+
+
+
+
+
+.footer{
+
+  overflow: hidden;
+  background: #0F0F0F;
+  position: relative;
+  z-index: 1;
+}
+
+.header{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+
+.header h1{
+  text-align: center;
+  color: #fff;
+  font-weight: lighter;
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background: rgba(255, 255,255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255,255, 0.25);
+  border-radius: 30px;
+  padding:15px 30px;
+  outline: none;
+  box-shadow: none;
+}
+
+
+.gallery{
+  height: 100%;
+  width: 100%;
+}
+
+.item{
+  position: absolute;
+  width: 200px;
+  height: 275px;
+}
+
+.item img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+
+
+.mutti{
+  font-family: 'Pirata One', system-ui;
+  font-size: 6vw;
+}
+
+
+
+
+
+
+/* 
+ /* .carousel {
+    width: 100%; 
+    overflow: hidden;
+    height: 16em;
+  }
+  .slides {
+    display: flex;
+    width: auto; 
+    animation: scroll 20s linear infinite; }
+  .slide {
+    flex: 0 0 auto;
+    width: 100vw; 
+    max-width: calc(100% / 3); 
+    object-fit: cover; 
+  } */ 
+  
+  /* @keyframes scroll {
+    0% {
+      transform: translateX(0); 
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
+  } */
+
+
+/* end*/
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+
+
+/* .header{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+
+h1{
+  text-align: center;
+  color: #fff;
+  font-weight: lighter;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+button{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background: rgba(255, 255,255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255,255, 0.25);
+  border-radius: 30px;
+  padding:15px 30px;
+  outline: none;
+  box-shadow: none;
+}
+
+
+.gallery{
+  height: 100%;
+  width: 100%;
+}
+
+.item{
+  position: absolute;
+  width: 200px;
+  height: 275px;
+}
+
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+ */
