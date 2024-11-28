@@ -1,4 +1,40 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Adjust line breaks for responsiveness
+    function adjustLineBreaks() {
+        const responsiveBrs = document.querySelectorAll('.responsive-br');
+        // const responsiveBrs2 = document.querySelectorAll('.responsive-br2');
+        // const responsiveBrs3 = document.querySelectorAll('.responsive-br3');
+        // const responsiveBrs4 = document.querySelectorAll('.responsive-br4');
+
+
+        const screenWidth = window.innerWidth;
+
+   
+        responsiveBrs.forEach(br => {
+            if (screenWidth <= 312 && screenWidth >= 576) { 
+                br.classList.add('hidden-br');
+            } else {
+                br.classList.remove('hidden-br');
+            }
+        });
+        
+       
+
+        
+    }
+
+    adjustLineBreaks();
+    window.addEventListener('resize', adjustLineBreaks);
+
+
+
+    
+
+    // Text appearance landing page
     gsap.registerPlugin(ScrollTrigger);
 
     const splitTypes = document.querySelectorAll('.reveal-type');
@@ -29,5 +65,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// PARALLAX IMAGES
 
+
+// grain
+// document.addEventListener("DOMContentLoaded", function() {
+//     let options = {
+//         animate: true,
+//         patternWidth: 100,
+//         patternHeight: 100,
+//         grainOpacity: 0.07,
+//         grainDensity: 1,
+//         grainWidth: 1,
+//         grainHeight: 3
+//     };
+//     grained('#wrapper', options);
+// });
