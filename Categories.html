@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutti-Categories</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+ 
+  <style>
+
+body{
+      background: black;
+      padding: 2em;
+    }
+/* Logo*/
+
+.mutti{
+      font-family: 'Pirata One', system-ui;
+      font-size: 9vw;
+      font-weight: 100;
+      letter-spacing: 0.1cap;
+      color: white;
+      margin-bottom: 5em;
+   
+    }
+
+    .top{
+      display: flex;
+      justify-content: end;
+    }
+
+/* hero */
+
+
+/* hero */
+
+.hero h1, .hero h3 {
+  margin: 0; /* Réinitialise les marges par défaut */
+  padding: 0; /* Réinitialise les paddings par défaut */
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 90%;
+  gap: 2em; /* Ajustez cette valeur selon vos besoins */
+}
+
+.hero h1 {
+  font-weight: 400;
+  font-size: 2rem;
+  color: white;
+}
+
+.hero h3 {
+  font-size: 1.3em;
+  color: white;
+  font-weight: 100;
+}
+
+
+    /* scroll galery */
+
+
+
+
+
+    
+  .hero,h1
+    .overlapping-gallery {
+      display: flex;
+      flex-direction: column;
+    
+    }
+
+ 
+    .overlapping-image {
+      position: relative;
+      overflow: hidden;
+      height: 400px; 
+    }
+
+    .overlapping-image-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .overlapping-image-inner img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px; 
+      object-fit: cover; 
+    }
+
+    .image-title {
+      position: absolute;
+      left: auto;
+  top: auto;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+   
+    }
+
+    
+
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1 class="mutti">Mutti</h1>
+  </div>
+  <div class="hero-container">
+    <div class="hero">
+      <h1>Choose a  <br>category </h1>
+      <h3>
+        Most of these photos were taken during official trips. Some are funny, others touching. 
+        All of them question the boundary between the public political persona and the person.
+      </h3>
+    </div>
+  </div>
+ 
+
+  <section>
+  
+  
+    <div class="overlapping-gallery">
+      <div class="overlapping-image">
+        <div class="overlapping-image-inner">
+          <h2 class="image-title">Food</h2>
+          <a href="./Food.html"><img src="./img/galerieFood.png" alt="Image 2"></a>
+  
+        </div>
+      </div>
+      <div class="overlapping-image">
+        <div class="overlapping-image-inner">
+          <h2 class="image-title">ANIMAL</h2>
+          <a href="#"><img src="./img/galerieAnimal.png" alt="Image 2"></a>
+        </div>
+      </div>
+      <div class="overlapping-image">
+        <div class="overlapping-image-inner">
+          <h2 class="image-title">VINTAGE</h2>
+          <a href="#"><img src="./img/galerieVintage.jpg" alt="Image 2"></a>
+        </div>
+      </div>
+     
+    </div>
+
+  </section>
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+ 
+
+  <script>
+
+// HERO
+const heroHeadings = document.querySelectorAll(".hero h1, .hero h3");
+
+ScrollTrigger.create({
+  trigger: document.body,
+  start: "top top",
+  end: "+=400vh",
+  scrub: 1,
+  onUpdate: (self) => {
+    let opacityProgress = self.progress;
+    heroHeadings.forEach(heading => {
+      heading.style.opacity = 1 - opacityProgress;
+    });
+  },
+});
+
+
+// END HERO
+
+
+// SCROLL
+
+// Utilisation de gsap pour sélectionner tous les éléments avec la classe 'overlapping-gallery'
+gsap.utils.toArray('.overlapping-gallery').forEach((pinnedGallery) => {
+  // Sélection de toutes les images à l'intérieur de chaque galerie
+  const pinnedImages = pinnedGallery.querySelectorAll('.overlapping-image');
+
+  // Fonction pour définir les propriétés de hauteur des images en fonction de la hauteur de la fenêtre
+  function setImagesProperties() {
+    gsap.set(pinnedImages, { height: window.innerHeight });
+  }
+
+  // Définir les propriétés initiales des images
+  setImagesProperties();
+
+  // Ajuster les propriétés des images lorsque la fenêtre est redimensionnée
+  window.addEventListener('resize', setImagesProperties);
+
+  // Pour chaque image de la galerie
+  pinnedImages.forEach((pImage, i, arr) => {
+    // Si ce n'est pas la dernière image
+    if (i < arr.length - 1) {
+      // Définition du multiplicateur de durée pour le ScrollTrigger
+      const durationMultiplier = arr.length - i - 1;
+
+      // Création d'un ScrollTrigger pour épingler l'image lors du défilement
+      ScrollTrigger.create({
+        trigger: pImage,
+        start: function () {
+          // Calcul du centre pour l'épingle en fonction de la hauteur de l'image intérieure
+          const centerPin = (window.innerHeight - pImage.querySelector('.overlapping-image-inner').offsetHeight) / 2;
+          return "top +=" + centerPin;
+        },
+        end: function () {
+          // Calcul de la hauteur de durée pour le ScrollTrigger
+          const durationHeight = pImage.offsetHeight * durationMultiplier + (pImage.offsetHeight - pImage.querySelector('.overlapping-image-inner').offsetHeight) / 2;
+          return "+=" + durationHeight;
+        },
+        pin: true, // Épingle l'image
+        pinSpacing: false, // Pas d'espacement supplémentaire lors de l'épingle
+        scrub: true, // Synchronisation de l'animation avec le défilement
+      });
+
+      // Propriétés de l'animation
+      const animationProperties = {
+        scale: 0.75,
+        opacity: 1,
+        zIndex: 0,
+        duration: 1,
+        ease: Linear.easeNone
+      };
+
+      // Création d'un autre ScrollTrigger pour animer l'image intérieure lors du défilement
+      ScrollTrigger.create({
+        trigger: pImage,
+        start: function () {
+          // Calcul du centre pour l'animation
+          const centerPin = (window.innerHeight - pImage.querySelector('.overlapping-image-inner').offsetHeight) / 2;
+          return "top +=" + centerPin;
+        },
+        end: function () {
+          // Calcul de la hauteur de durée pour l'animation
+          const durationHeight = pImage.offsetHeight + (pImage.offsetHeight - pImage.querySelector('.overlapping-image-inner').offsetHeight) / 2;
+          return "+=" + durationHeight;
+        },
+        scrub: true, // Synchronisation de l'animation avec le défilement
+        animation: gsap.to(pImage.querySelector('.overlapping-image-inner'), animationProperties), // Application des propriétés d'animation à l'image intérieure
+      });
+
+    }
+  });
+
+});
+
+
+
+
+    // END  SCROLL
+
+  </script>
+</body>
+</html>
