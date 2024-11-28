@@ -19,57 +19,47 @@
     
     <div id="page">
       <main>
-     <section class="hero-container" >
-          <div class="hero">
-            <h1>Mutti</h1>
-            <div class="img-full">
-                <div class="top-img">
-                  <img src="./h1.jpg" alt="">
-                  <img src="./h2.png" alt="">
-                </div>
-                <div class="bottom-img">
-                  <img src="./g.png" alt="">
-                  <div class="right-img">
-                    <img src="./d1.png" alt="">
-                    <img src="./d2.png" alt="">
-                  </div>
-                </div>   
-              </div>
+        <section class="hero-mobile">
+          <div class="container-hm">
+            <h1 class="logo-hm">Mutti</h1>
+            <img src="https://www.furche.at/images/content/5676700-1920x1080c-Raute.jpg" alt="" class="img-hm">
           </div>
         </section>
+        <!-- <section class="hero-container">
+          <div class="hero">
+              <h1>Mutti</h1>
+              <div class="img-full">
+                  <div class="top-img">
+                      <img src="./img/h1.jpg" alt="">
+                      <img src="./img/h2.png" alt="">
+                  </div>
+                  <div class="bottom-img">
+                      <img src="./img/g.png" alt="Description of image g" loading="lazy">
+                      <div class="right-img">
+                          <img src="./img/d1.png" alt="Description of image d1" loading="lazy">
+                          <img src="./img/d2.png" alt="Description of image d2" loading="lazy">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+       -->
 
-
+       
         <section class="about">
           <p class="reveal-type" data-bg-color="#1d1d1d" data-fg-color="white">
-            Mutti is a project featuring a selection of photographs <br> from Angela Merkel. Devoid of any political intent, it is <br> an iconographic testimony to the years in office of <br>one of the most powerful women in the world.
+            Mutti is a project featuring a <br class="responsive-br">selection of  photographs from Angela Merkel. <br class="responsive-br">Devoid of any  
+           political intent, <br class="responsive-br">it is  an iconographic testimony <br class="responsive-br">to the  years in  office of one  of <br class="responsive-br">the most powerful women <br class="responsive-br">in the  world.
         </section>
         
         <section class="footer">
           <div class="header">
-            <h1>Browse <span class="mutti">Mutti </span> now</h1>
-            <button>Go</button>
+            <h1>Browse <span class="mutti">Mutti <sup class="exposant">beta</sup></span> now</h1>
+            <a href="./Categories.html"><button>Go</button></a>
           </div>
           <div class="gallery"></div>
         </section>
-  
 
-   
-<!--     
-      <section class="categories" data-color="white black">
-        <div class="container">
-          <h3 class="split"> Plus de 1000 photos</h3>
-        </div>
-        <div class="carousel">
-          <div class="slides">
-            <img class="slide" src="https://editorial01.shutterstock.com/preview-440/9765610e/0787d3c6/Shutterstock_9765610e.jpg" alt="">
-            <img class="slide" src="https://img.welt.de/img/vermischtes/mobile102072035/3571350807-ci16x9-w1200/merkelpinguine-x-DW-Politik-Stralsund-jpg.jpg" alt="">
-            <img class="slide" src="https://media.vanityfair.fr/photos/6151dc113657cac85cbb2c43/16:9/w_2560%2Cc_limit/ABACA_781479_001.jpg" alt="">
-            <img class="slide" src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fblogs.ft.com%2Fphoto-diary%2Ffiles%2F2015%2F12%2FMerkel_AP.jpg?source=next-article&fit=scale-down&quality=highest&width=2048&dpr=1" alt="">
-            <img class="slide" src="https://static.dw.com/image/59302591_702.jpg" alt="">
-            <img class="slide" src="https://editorial01.shutterstock.com/preview-440/9765610e/0787d3c6/Shutterstock_9765610e.jpg" alt="">
-            
-          </div>
-      </section> -->
   
 
     
@@ -78,67 +68,78 @@
 
   <script type="module">
 
-//end
-import { items } from "./items.js"
-  const gallery = document.querySelector(".gallery")
 
-  const itemPositions = [
-  { top: "5%", left: "7%" }, 
-  { top: "23%", left: "27%" }, 
-  // { top: "75%", left: "25%" }, 
-  { top: "75%", left: "75%" }, 
-  { top: "25%", left: "75%" }, 
-  { top: "10%", left: "50%" }, 
-  { top: "70%", left: "55%" }, 
-  { top: "50%", left: "5%" }, 
-  // { top: "50%", left: "100%" }, 
-  { top: "65%", left: "25%" }, 
- 
+import { items } from "./items.js";
+
+const gallery = document.querySelector(".gallery");
+
+const itemPositionsLarge = [
+  { top: "5%", left: "7%" },
+  { top: "23%", left: "27%" },
+  { top: "75%", left: "75%" },
+  { top: "25%", left: "75%" },
+  { top: "10%", left: "50%" },
+  { top: "70%", left: "55%" },
+  { top: "50%", left: "5%" },
+  { top: "65%", left: "25%" },
 ];
 
+const itemPositionsSmall = [
+  { top: "2%", left: "7%" },
+  { top: "30%", left: "27%" },
+  { top: "40%", left: "75%" },
+  { top: "5%", left: "75%" },
+  { top: "10%", left: "43%" }, //
+  { top: "70%", left: "75%" },
+  { top: "50%", left: "5%" },
+  { top: "65%", left: "35%" },
+];
+
+function updateGalleryPositions() {
   
-//   const itemPositions = [
-//   { top: "-5%", left: "5%" },
-//   { top: "40%", left: "5%" }, 
-//   { top: "25%", left: "20%" }, 
-//   { top: "60%", left: "40%" }, 
-//   { top: "70%", left: "10%" }, 
-//   { top: "-10%", left: "65%" }, 
-//   { top: "10%", left: "85%" }, 
-//   { top: "40%", left: "60%" }, 
-//   { top: "80%", left: "70%" }, 
-//   { top: "50%", left: "95%" }
-// ];
-
-items.forEach((itemData,index) => {
-  const item = document.createElement("div");
-  item.classList.add("item")
-
-  const position= itemPositions[index];
-  item.style.top= position.top;
-  item.style.left= position.left;
-
-  const img= document.createElement("img");
-  img.src = itemData.img
-  item.appendChild(img)
+  gallery.innerHTML = "";
 
 
-  gallery.appendChild(item)
-  console.log("Nombre total d'éléments ajoutés à la galerie:", gallery.children.length);
-  
-});
+  const itemPositions = window.innerWidth < 768 ? itemPositionsSmall : itemPositionsLarge;
 
+ 
+  items.forEach((itemData, index) => {
+    if (itemData.id >= 0 && itemData.id <= 10) {
+      const item = document.createElement("div");
+      item.classList.add("item");
+
+      const position = itemPositions[index];
+      item.style.top = position.top;
+      item.style.left = position.left;
+
+      const img = document.createElement("img");
+      img.src = itemData.img;
+      item.appendChild(img);
+
+      gallery.appendChild(item);
+      console.log("Nombre total d'éléments ajoutés à la galerie:", gallery.children.length);
+    }
+  });
+}
+
+
+updateGalleryPositions();
+
+
+window.addEventListener("resize", updateGalleryPositions);
+
+// Parallax effect on mouse move
 document.addEventListener("mousemove", (e) => {
   gallery.querySelectorAll(".item").forEach((item, index) => {
     const animationFactor = items[index].parllaxSpeed;
-    
-    const deltaX=(e.clientX-window.innerWidth/2)* animationFactor;
-    const deltaY=(e.clientY-window.innerWidth/2)* animationFactor;
 
-    gsap.to(item,{x:deltaX,y:deltaY,duration:0.75})
+    const deltaX = (e.clientX - window.innerWidth / 2) * animationFactor;
+    const deltaY = (e.clientY - window.innerHeight / 2) * animationFactor;
 
+    gsap.to(item, { x: deltaX, y: deltaY, duration: 0.75 });
   });
 });
+
 
 
 
