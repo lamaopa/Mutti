@@ -292,20 +292,20 @@ body{
   <script>
 
 // HERO
-const heroHeadings = document.querySelectorAll(".hero h1, .hero h3");
+//const heroHeadings = document.querySelectorAll(".hero h1, .hero h3");
 
-ScrollTrigger.create({
-  trigger: document.body,
-  start: "top top",
-  end: "+=400vh",
-  scrub: 1,
-  onUpdate: (self) => {
-    let opacityProgress = self.progress;
-    heroHeadings.forEach(heading => {
-      heading.style.opacity = 1 - opacityProgress;
-    });
-  },
-});
+//ScrollTrigger.create({
+//  trigger: document.body,
+  //start: "top top",
+  //end: "+=400vh",
+ // scrub: 1,
+  //onUpdate: (self) => {
+   // let opacityProgress = self.progress;
+   // heroHeadings.forEach(heading => {
+     // heading.style.opacity = 1 - opacityProgress;
+   // });
+ // },
+//}); 
 
 
 // END HERO
